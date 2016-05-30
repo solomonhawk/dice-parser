@@ -4,15 +4,18 @@
   "description": "A simple dice parser",
   "main": "build/dice-parser.js",
   "scripts": {
-    "start": "make -s watch",
-    "build": "make all",
+    "clean": "rm -rf ./build/*",
+    "start": "NODE_ENV=development webpack -w --config config/webpack.js",
+    "build": "npm run clean && NODE_ENV=production webpack -p --config config/webpack.js",
     "test": "NODE_ENV=test karma start config/karma.js --singleRun",
     "test:watch": "NODE_ENV=test karma start config/karma.js",
-    "test:cov": "NODE_ENV=test karma start config/karma.js --singleRun --coverage"
+    "test:cov": "NODE_ENV=test karma start config/karma.js --singleRun --coverage",
+    "prepublish": "npm run build"
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "stage-1"
     ],
     "plugins": [
       "transform-flow-strip-types",
@@ -28,9 +31,9 @@
     "babel-loader": "6.2.4",
     "babel-plugin-transform-flow-strip-types": "6.8.0",
     "babel-plugin-transform-object-assign": "6.8.0",
-    "babel-plugin-transform-runtime": "6.9.0",
     "babel-polyfill": "6.9.1",
     "babel-preset-es2015": "6.9.0",
+    "babel-preset-stage-1": "6.5.0",
     "chai": "3.5.0",
     "isparta-loader": "2.0.0",
     "karma": "0.13.22",

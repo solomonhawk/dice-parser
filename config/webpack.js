@@ -7,7 +7,7 @@ module.exports = {
 
   devtool: __DEV__ ? 'inline-source-map' : 'source-map',
 
-  entry: [ pkg.main ],
+  entry: [ './src/index.js' ],
 
   output: {
     path: 'build',
