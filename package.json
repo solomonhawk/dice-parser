@@ -20,7 +20,7 @@
     ]
   },
   "author": "Solomon Hawk <solomon.hawk@viget.com> (http://viget.com/)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel": "6.5.2",
     "babel-cli": "6.9.0",
