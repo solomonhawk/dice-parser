@@ -1,0 +1,8 @@
+[ignore]
+.*/test/.*
+
+[include]
+./src
+
+[version]
+0.22.1

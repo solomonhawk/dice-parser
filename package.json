@@ -1,0 +1,48 @@
+{
+  "name": "dice-parser",
+  "version": "1.0.0",
+  "description": "A simple dice parser",
+  "main": "build/dice-parser.js",
+  "scripts": {
+    "start": "make -s watch",
+    "build": "make all",
+    "test": "NODE_ENV=test karma start config/karma.js --singleRun",
+    "test:watch": "NODE_ENV=test karma start config/karma.js",
+    "test:cov": "NODE_ENV=test karma start config/karma.js --singleRun --coverage"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-flow-strip-types",
+      "transform-object-assign"
+    ]
+  },
+  "author": "Solomon Hawk <solomon.hawk@viget.com> (http://viget.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "6.5.2",
+    "babel-cli": "6.9.0",
+    "babel-core": "6.9.0",
+    "babel-loader": "6.2.4",
+    "babel-plugin-transform-flow-strip-types": "6.8.0",
+    "babel-plugin-transform-object-assign": "6.8.0",
+    "babel-plugin-transform-runtime": "6.9.0",
+    "babel-polyfill": "6.9.1",
+    "babel-preset-es2015": "6.9.0",
+    "chai": "3.5.0",
+    "isparta-loader": "2.0.0",
+    "karma": "0.13.22",
+    "karma-chai": "0.1.0",
+    "karma-coverage": "1.0.0",
+    "karma-mocha": "1.0.1",
+    "karma-mocha-reporter": "2.0.3",
+    "karma-phantomjs-launcher": "1.0.0",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-webpack": "1.7.0",
+    "mocha": "2.5.3",
+    "phantomjs-prebuilt": "2.1.7",
+    "webpack": "1.13.1"
+  }
+}
