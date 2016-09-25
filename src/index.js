@@ -1,5 +1,4 @@
 //@flow
-type NestedArray<T> = Array<T|NestedArray<T>>
 type NestedStringArray = Array<string|Array<string>>
 
 type DiceRoll = {
@@ -18,7 +17,7 @@ type CompositeDiceRoll = {
 /**
  * Flattens nested arrays
  **/
-function flatten<T>(xs: NestedArray<T>): Array<T> {
+function flatten<T>(xs: Array<T|Array<T>>): Array<T> {
   let result = []
 
   for (let x of xs) {
@@ -55,6 +54,8 @@ export function roll(inputs: string | NestedStringArray): CompositeDiceRoll {
   return compute(inputs)
 }
 
+export default roll
+
 /**
  * Takes an array of mixed strings (singular or comma-delimited)
  * and returns a flattened array of strings by calling `#rollsReducer`.
@@ -70,8 +71,10 @@ function prepare(rolls: Array<string>): Array<string> {
  * a single space, and then splitting on a variety of delimiters(\s | ,).
  **/
 function rollsReducer(result: Array<string>, roll: string): Array<string> {
-  let trimmed: Array<string> = roll.replace(/\s+/g, ' ').split(/[\s|,]/)
-  return result.concat(trimmed)
+  let split: Array<string> = roll.split(/[|,]/)
+  let prepped: NestedStringArray = split.map(str => str.trim().replace(/\s+/g, ' ').split(' '))
+
+  return result.concat(flatten(prepped))
 }
 
 /**
