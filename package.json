@@ -1,6 +1,6 @@
 {
   "name": "dice-parser",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A simple dice parser",
   "main": "build/dice-parser.js",
   "scripts": {
